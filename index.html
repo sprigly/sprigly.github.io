@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>sprigly · spriglylab</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -75,7 +75,49 @@
       @keyframes x-bob{50%{transform:translateY(-8px)}}
       @keyframes x-hop{40%{transform:translateY(-36px) rotate(-6deg)}}
       @keyframes x-glow{0%,88%,100%{filter:drop-shadow(0 0 6px rgba(79,227,214,.4))}92%{filter:drop-shadow(0 0 22px rgba(140,255,122,.95)) brightness(1.15)}}
-      @media (max-width:640px){.x-stats{grid-template-columns:repeat(2,1fr)}.x-mascot__btn{width:80px;height:80px}.x-bubble{max-width:170px}.x-main{gap:48px}.x-hero{min-height:78vh;align-items:flex-end}.x-hero::before{background:linear-gradient(0deg,rgba(13,11,31,.95) 10%,rgba(13,11,31,.45) 70%)}}
+      /* ---- mobile: tablets and phones (≤768px) ---- */
+      @media (max-width:768px){
+        html,body{overflow-x:hidden;overflow-x:clip;max-width:100%}
+        body{background-attachment:scroll}
+        .page{padding-inline:16px}
+        .x-main{gap:48px;min-width:0}
+        .x-hero{min-height:80vh;min-height:80svh;align-items:flex-end;margin-top:12px}
+        .x-hero__img{object-position:64% 40%}
+        .x-hero__frames{transform-origin:64% 40%}
+        .x-glow{left:36%;width:56%}
+        .x-hero::before{background:linear-gradient(0deg,rgba(13,11,31,.97) 0,rgba(13,11,31,.9) 28%,rgba(13,11,31,.55) 48%,rgba(13,11,31,.1) 68%,transparent 80%)}
+        .x-hero__copy{width:100%;max-width:560px;padding:24px 24px calc(124px + env(safe-area-inset-bottom))}
+        .x-type{white-space:nowrap;overflow:hidden;height:1.4em;line-height:1.4em;min-height:0}
+        .x-sec,.x-sec>*{min-width:0}
+        .x-sec h2{font-size:clamp(22px,5.4vw,28px);line-height:1.2}
+        .x-feat h3{font-size:clamp(20px,5vw,26px)}
+        .x-grid{grid-template-columns:1fr}
+        .x-proj h3,.x-meta,.x-about,.x-proj p{overflow-wrap:anywhere;word-break:break-word}
+        .x-stats{grid-template-columns:repeat(2,1fr);row-gap:24px}
+        .x-stat b{font-size:clamp(28px,8vw,40px);line-height:1.1}
+        .x-foot{padding-bottom:calc(168px + env(safe-area-inset-bottom))}
+        .x-mascot{right:calc(12px + env(safe-area-inset-right));bottom:calc(12px + env(safe-area-inset-bottom));flex-direction:row;align-items:flex-start;gap:6px}
+        .x-mascot__btn{width:72px;height:72px;flex:none}
+        .x-bubble{max-width:60vw;font:var(--type-caption);padding:8px 40px 8px 12px;transform:translateY(-28px);border-radius:var(--r-s)}
+      }
+      /* ---- phones (≤480px) ---- */
+      @media (max-width:480px){
+        .x-hero{height:100vh;height:100svh;min-height:0;margin-top:8px;border-radius:var(--r-l)}
+        .x-hero__copy{padding:20px 20px calc(112px + env(safe-area-inset-bottom))}
+        .x-kana{font-size:var(--size-caption);letter-spacing:.14em;margin-bottom:8px}
+        .x-hero h1{font-size:clamp(44px,17vw,76px)}
+        .x-type{font-size:16px;margin:12px 0 6px}
+        .x-tag{margin-bottom:20px}
+        .x-btns{flex-direction:column;gap:10px}
+        .x-btns .x-btn{width:100%;justify-content:center;min-height:48px}
+        .x-card{padding:20px}
+        .x-about{font-size:16px}
+        .x-feat{flex-direction:column;align-items:stretch}
+        .x-feat .x-btn{justify-content:center;min-height:48px}
+        .x-mascot__btn{width:64px;height:64px}
+        .x-bubble{transform:translateY(-24px)}
+      }
+      @media (hover:none){.x-btn:hover,.x-proj:hover{transform:none;box-shadow:none}}
       @media (prefers-reduced-motion:reduce){.x-reveal{opacity:1;transform:none;transition:none}.x-mascot__btn,.x-mascot__btn img,.x-type::after{animation:none}.x-rain{display:none}.x-hero__frames,.x-hero__breath{animation:none;transform:none}.x-hero__frame{display:none}.x-glow{animation:none;opacity:.7}.x-hero__bg,.x-hero__copy{transform:none}}
     </style>
   </head>
@@ -106,7 +148,7 @@
           </div>
         </section>
 
-        <section class="x-sec x-reveal" id="about">
+        <section class="x-sec" id="about">
           <p class="x-kana">01 / 关于 · ABOUT</p>
           <h2>Small, useful tools, shipped.</h2>
           <div class="x-card">
@@ -114,7 +156,7 @@
           </div>
         </section>
 
-        <section class="x-sec x-reveal" id="projects">
+        <section class="x-sec" id="projects">
           <p class="x-kana">02 / 项目 · PROJECTS</p>
           <h2>Things I've built.</h2>
           <div class="x-grid" id="repos">
@@ -136,7 +178,7 @@
           </div>
         </section>
 
-        <section class="x-sec x-reveal" id="stats">
+        <section class="x-sec" id="stats">
           <p class="x-kana">03 / 数据 · STATS</p>
           <h2>On GitHub.</h2>
           <div class="x-card x-stats">
@@ -147,7 +189,7 @@
           </div>
         </section>
 
-        <section class="x-sec x-reveal" id="featured">
+        <section class="x-sec" id="featured">
           <p class="x-kana">04 / 推荐 · FEATURED</p>
           <div class="x-card x-feat">
             <div>
@@ -194,11 +236,12 @@
         // rain + floating lights
         const c = $("#rain");
         if (!still && c) {
-          const x = c.getContext("2d"); let W, H, drops = [], motes = [];
+          const x = c.getContext("2d"), phone = matchMedia("(max-width: 768px)"); let W, H, drops = [], motes = [];
           const size = () => {
             W = c.width = c.offsetWidth; H = c.height = c.offsetHeight;
-            drops = Array.from({ length: Math.round(W / 9) }, () => ({ x: Math.random() * W, y: Math.random() * H, l: 8 + Math.random() * 16, v: 6 + Math.random() * 7 }));
-            motes = Array.from({ length: 24 }, () => ({ x: Math.random() * W, y: Math.random() * H, r: 1 + Math.random() * 2.5, v: .2 + Math.random() * .5, h: Math.random() < .5 ? "79,227,214" : "182,156,255" }));
+            const k = phone.matches ? .5 : 1; // half the rain and lights on phones
+            drops = Array.from({ length: Math.round(W / 9 * k) }, () => ({ x: Math.random() * W, y: Math.random() * H, l: 8 + Math.random() * 16, v: 6 + Math.random() * 7 }));
+            motes = Array.from({ length: Math.round(24 * k) }, () => ({ x: Math.random() * W, y: Math.random() * H, r: 1 + Math.random() * 2.5, v: .2 + Math.random() * .5, h: Math.random() < .5 ? "79,227,214" : "182,156,255" }));
           };
           size(); addEventListener("resize", size);
           let on = true; new IntersectionObserver(([e]) => (on = e.isIntersecting)).observe(c);
@@ -215,11 +258,13 @@
         // hero parallax: cursor on desktop, gentle auto drift on touch
         const hero = $(".x-hero");
         if (!still && hero) {
-          const fine = matchMedia("(hover: hover) and (pointer: fine)").matches;
+          // mouse parallax only with a real hovering mouse; touch gets the auto drift
+          const fine = matchMedia("(hover: hover) and (pointer: fine)").matches && !("ontouchstart" in window && navigator.maxTouchPoints > 0 && !matchMedia("(any-hover: hover)").matches);
           let tx = 0, ty = 0, cx = 0, cy = 0, vis = true;
           new IntersectionObserver(([e]) => (vis = e.isIntersecting)).observe(hero);
           if (fine) {
             hero.addEventListener("pointermove", (e) => {
+              if (e.pointerType !== "mouse") return;
               const r = hero.getBoundingClientRect();
               tx = ((e.clientX - r.left) / r.width - .5) * 2; ty = ((e.clientY - r.top) / r.height - .5) * 2;
             });
@@ -269,9 +314,22 @@
           });
         }
 
-        // scroll reveal
-        const io = new IntersectionObserver((es) => es.forEach((e) => e.isIntersecting && (e.target.classList.add("is-in"), io.unobserve(e.target))), { threshold: .12 });
-        document.querySelectorAll(".x-reveal").forEach((el) => io.observe(el));
+        // scroll reveal: each heading and card on its own, so tall sections on phones still trigger
+        const io = "IntersectionObserver" in window
+          ? new IntersectionObserver((es) => es.forEach((e) => e.isIntersecting && (e.target.classList.add("is-in"), io.unobserve(e.target))), { threshold: .1, rootMargin: "0px 0px -6% 0px" })
+          : null;
+        const reveal = (el, i = 0) => {
+          if (!io || still) return;
+          el.classList.add("x-reveal");
+          el.style.transitionDelay = `${(i % 3) * 80}ms`;
+          el.addEventListener("transitionend", (e) => {
+            if (e.target !== el || !el.classList.contains("is-in")) return;
+            el.classList.remove("x-reveal", "is-in"); el.style.transitionDelay = "";
+          });
+          io.observe(el);
+        };
+        document.querySelectorAll(".x-sec > .x-kana, .x-sec > h2, .x-sec > .x-card").forEach((el) => reveal(el));
+        document.querySelectorAll("#repos > .x-card").forEach((el, i) => reveal(el, i));
 
         // count-up
         const put = (k, n) => {
@@ -302,7 +360,7 @@
             a.className = "x-card x-proj"; a.href = r.html_url; a.target = "_blank"; a.rel = "noopener";
             const h = document.createElement("h3"), p = document.createElement("p"), m = document.createElement("span");
             h.textContent = r.name; p.textContent = r.description || "No description yet."; m.className = "x-meta"; m.textContent = meta;
-            a.append(h, p, m); grid.append(a);
+            a.append(h, p, m); grid.append(a); reveal(a, grid.children.length - 1);
           });
           put("stars", stars);
         }).catch(() => put("stars"));
