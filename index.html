@@ -69,9 +69,9 @@
       .x-mascot__btn{pointer-events:auto;width:120px;height:120px;padding:0;border:0;background:none;cursor:pointer;animation:x-bob 3s ease-in-out infinite}
       .x-mascot__btn img{width:100%;height:100%;object-fit:contain;animation:x-glow 4s ease-in-out infinite}
       .x-mascot__btn.is-hop{animation:x-hop .5s var(--ease-out)}
-      .x-bubble{pointer-events:auto;position:relative;max-width:220px;background:rgba(22,18,58,.9);border:1px solid var(--x-teal);border-radius:var(--r-m);padding:10px 36px 10px 14px;font:var(--type-small);color:var(--x-ink);box-shadow:0 0 18px rgba(79,227,214,.3);transition:opacity var(--dur-quick)}
+      .x-bubble{pointer-events:none;position:relative;max-width:220px;background:rgba(22,18,58,.9);border:1px solid var(--x-teal);border-radius:var(--r-m);padding:10px 36px 10px 14px;font:var(--type-small);color:var(--x-ink);box-shadow:0 0 18px rgba(79,227,214,.3);transition:opacity var(--dur-quick)}
       .x-bubble[hidden]{display:none}
-      .x-bubble__x{position:absolute;top:0;right:0;width:var(--tap);height:var(--tap);border:0;background:none;color:var(--x-dim);font-size:16px;cursor:pointer}
+      .x-bubble__x{position:absolute;top:0;right:0;width:var(--tap);height:var(--tap);border:0;background:none;color:var(--x-dim);font-size:16px;cursor:pointer;pointer-events:auto}
       @keyframes x-bob{50%{transform:translateY(-8px)}}
       @keyframes x-hop{40%{transform:translateY(-36px) rotate(-6deg)}}
       @keyframes x-glow{0%,88%,100%{filter:drop-shadow(0 0 6px rgba(79,227,214,.4))}92%{filter:drop-shadow(0 0 22px rgba(140,255,122,.95)) brightness(1.15)}}
@@ -86,7 +86,7 @@
         .x-hero__frames{transform-origin:64% 40%}
         .x-glow{left:36%;width:56%}
         .x-hero::before{background:linear-gradient(0deg,rgba(13,11,31,.97) 0,rgba(13,11,31,.9) 28%,rgba(13,11,31,.55) 48%,rgba(13,11,31,.1) 68%,transparent 80%)}
-        .x-hero__copy{width:100%;max-width:560px;padding:24px 24px calc(124px + env(safe-area-inset-bottom))}
+        .x-hero__copy{width:100%;max-width:560px;padding:24px 24px calc(140px + env(safe-area-inset-bottom))}
         .x-type{white-space:nowrap;overflow:hidden;height:1.4em;line-height:1.4em;min-height:0}
         .x-sec,.x-sec>*{min-width:0}
         .x-sec h2{font-size:clamp(22px,5.4vw,28px);line-height:1.2}
@@ -103,7 +103,7 @@
       /* ---- phones (≤480px) ---- */
       @media (max-width:480px){
         .x-hero{height:100vh;height:100svh;min-height:0;margin-top:8px;border-radius:var(--r-l)}
-        .x-hero__copy{padding:20px 20px calc(112px + env(safe-area-inset-bottom))}
+        .x-hero__copy{padding:20px 20px calc(140px + env(safe-area-inset-bottom))}
         .x-kana{font-size:var(--size-caption);letter-spacing:.14em;margin-bottom:8px}
         .x-hero h1{font-size:clamp(44px,17vw,76px)}
         .x-type{font-size:16px;margin:12px 0 6px}
